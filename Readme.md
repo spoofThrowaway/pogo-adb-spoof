@@ -4,6 +4,8 @@ Disclaimer: I'm not taking any responsability for any damage caused by this prog
 
 This Program takes in geographic coordinates, and teleports the users to the locations, taking into consideration the softban cooldown values, and avoids them entirely.
 
+Basically what you can do with this is to have a bunch of coordinates and teleport to them one after the other, making easy to farm candy or even raids. The app shows the remaining time you need to safely teleport to the next location without risking softbans.
+
 Requirements:
 
 -Rooted Android phone
