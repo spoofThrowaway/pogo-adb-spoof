@@ -3,6 +3,7 @@ Disclaimer: I'm not taking any responsability for any damage caused by this prog
 This Program takes in geographic coordinates, and teleports the users to the locations, taking into consideration the softban cooldown values, and avoids them entirely.
 
 Requirements:
+
 -Rooted Android phone
 
 -TheAppNinjas GPS Joystick app: http://gpsjoystick.theappninjas.com/faq/
