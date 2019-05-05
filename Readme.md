@@ -4,14 +4,23 @@ This Program takes in geographic coordinates, and teleports the users to the loc
 
 Requirements:
 -Rooted Android phone
+
 -TheAppNinjas GPS Joystick app: http://gpsjoystick.theappninjas.com/faq/
+
 -ADB enabled in Developer Settings
+
 -ADB on PC: https://dl.google.com/android/repository/platform-tools-latest-windows.zip
 
+
+
 How to use:
+
 -Download the package from the releases and extract it into any folder.
+
 -Download the ADB from the link above, and extract "adb.exe" , "AdbWinApi.dll" ; "AdbWinUsbApi.dll" ONLY, and place them in the folder you created above.
+
 -Run the program and follow the instructions.
+
 
 Hover over the Steps which explains how the app actually works.
 
