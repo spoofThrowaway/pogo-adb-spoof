@@ -1,3 +1,5 @@
+![alt text](https://i.imgur.com/sWIJSDH.png)
+
 Disclaimer: I'm not taking any responsability for any damage caused by this program. This will NOT prevent you from softbans, but it will make it harder to get them if you use the program correctly.
 
 This Program takes in geographic coordinates, and teleports the users to the locations, taking into consideration the softban cooldown values, and avoids them entirely.
