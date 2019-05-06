@@ -38,6 +38,9 @@ namespace PokemonGoTeleporter
         List<string> coords = new List<string>();
         float[][] distances = new float[1][];
         double smallestDist = 0;
+        bool firstCoord = true;
+        bool checkBtnAvailable = false;
+        int adbWaitTime = 1000;
 
 
         public appForm()
@@ -76,39 +79,42 @@ namespace PokemonGoTeleporter
         private void teleportBtn_Click(object sender, EventArgs e)
         {
 
-            
-
-            currentCoordinateTextBox.Text = nextCoordinateTextBox.Text;
-            int i = getSmallestDist();
-            if (listBox1.Items.Count != 0)
+            if (checkBtnAvailable)
             {
-                nextCoordinateTextBox.Text = listBox1.Items[i].ToString();
-                listBox1.Items.RemoveAt(i);
-                currentLat = listLatitude[i];
-                currentLong = listLongitude[i];
-                listLatitude.RemoveAt(i);
-                listLongitude.RemoveAt(i);
-
-                returnDistanceTime();
-
                 startService();
+                currentCoordinateTextBox.Text = nextCoordinateTextBox.Text;
+                try
+                {
+                    int i = getSmallestDist();
+                    currentLat = listLatitude[i];
+                    currentLong = listLongitude[i];
+                    nextCoordinateTextBox.Text = currentLat.ToString() + ", " + currentLong.ToString();
+                    listLatitude.RemoveAt(i);
+                    listLongitude.RemoveAt(i);
+                    listBox1.Items.RemoveAt(i);
 
-                teleportBtn.Enabled = false;
-                teleportBtn.BackColor = Color.Gray;
-                teleportBtn.Text = "Be Patient!";
+                    returnDistanceTime();
 
-                timeLeftToTeleport.Text = t.ToString();
-                timeLeftToTeleport.ForeColor = Color.Red;
+                    teleportBtn.Enabled = false;
+                    teleportBtn.BackColor = Color.Gray;
+                    teleportBtn.Text = "Be Patient!";
 
+                    timeLeftToTeleport.Text = t.ToString();
+                    timeLeftToTeleport.ForeColor = Color.Red;
+                }
+                catch (Exception error)
+                {
+                    nextCoordinateTextBox.Text = "";
+                    teleportBtn.Enabled = false;
+                    teleportBtn.BackColor = Color.Gray;
+                    teleportBtn.Text = "FINISHED!";
+                    coordListBox.Enabled = true;
+                    coordListBox.BackColor = Color.White;
+                }
             }
             else
             {
-                nextCoordinateTextBox.Text = "";
-                teleportBtn.Enabled = false;
-                teleportBtn.BackColor = Color.Gray;
-                teleportBtn.Text = "FINISHED!";
-                coordListBox.Enabled = true;
-                coordListBox.BackColor = Color.White;
+
             }
 
         }
@@ -181,6 +187,7 @@ namespace PokemonGoTeleporter
         {
             coordsParser();
             coordListBox.Clear();
+            checkBtnAvailable = true;
         }
 
         private void stopJoystickBtn_Click(object sender, EventArgs e)
@@ -202,7 +209,7 @@ namespace PokemonGoTeleporter
             process.Start();
             process.Refresh();
             isServiceRunning = false;
-            System.Threading.Thread.Sleep(1000);
+            System.Threading.Thread.Sleep(adbWaitTime);
 
             startInfo.FileName = "adb.exe";
             startInfo.Arguments = " shell am start-foreground-service -a theappninjas.gpsjoystick.TELEPORT --ef lat " + currentLat + " --ef lng " + currentLong.ToString() + " --ef alt 0.0";
@@ -356,6 +363,23 @@ namespace PokemonGoTeleporter
 
         }
 
+        private void minusBtn_Click(object sender, EventArgs e)
+        {
+            if (adbWaitTime != 1000) {
+                adbWaitTime -= 1000;
+                adbTime.Text = (adbWaitTime / 1000).ToString() + " sec";
+            }
+        }
+
+        private void plusBtn_Click(object sender, EventArgs e)
+        {
+            if (adbWaitTime != 10000)
+            {
+                adbWaitTime += 1000;
+                adbTime.Text = (adbWaitTime / 1000).ToString() + " sec";
+            }
+        }
+
         private void nextClipboardBtn_Click(object sender, EventArgs e)
         {
             Clipboard.SetText(nextCoordinateTextBox.Text);
@@ -372,7 +396,9 @@ namespace PokemonGoTeleporter
             notifyIcon1.Text = "Pokemon Go Teleporter";
             notifyIcon1.Visible = true;
 
-
+            teleportBtn.Enabled = false;
+            teleportBtn.BackColor = Color.Gray;
+            teleportBtn.Text = "TELEPORT!";
 
             toolTip1.AutoPopDelay = 30000;
             toolTip1.InitialDelay = 250;
@@ -385,23 +411,11 @@ namespace PokemonGoTeleporter
             toolTip1.SetToolTip(this.label10, "After you have catched the 'Mon, or it fled, press the \"Start Cooldown Counter\" button to start the cooldown until you can safely teleport to the next location.");
             toolTip1.SetToolTip(this.label11, "Press this button if the 'Mon despawned or you did not interact with anything at the location and want to move to the next coordinate.");
 
+
+            adbTime.Text = (adbWaitTime / 1000).ToString() + " sec";
+
+
             MessageBox.Show("DISCLAIMER: I am not responsible for any damage this app may cause you, including, but not limited to softbans, literal bans, thermonuclear war and kittys dying. If you do not agree, please close this program and forget about it's existence.");
-        }
-
-        private void listBox1_DrawItem(object sender, DrawItemEventArgs e)
-        {
-            var item = listBox1.Items[e.Index] as ColoredItem;
-
-            if (item != null)
-            {
-                e.Graphics.DrawString(
-                    item.Text,
-                    e.Font,
-                    new SolidBrush(item.Color),
-                    e.Bounds);
-            }
-
-
         }
 
         //Coordinate parsing

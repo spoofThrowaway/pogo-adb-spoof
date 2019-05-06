@@ -43,6 +43,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.nextClipboardBtn = new System.Windows.Forms.Button();
             this.currentClipboardBtn = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -60,15 +61,17 @@
             this.etheriumPic = new System.Windows.Forms.PictureBox();
             this.btcPic = new System.Windows.Forms.PictureBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.adbTime = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.customTimerBtn = new System.Windows.Forms.Button();
             this.listBox2 = new System.Windows.Forms.ListBox();
+            this.plusBtn = new System.Windows.Forms.Button();
+            this.minusBtn = new System.Windows.Forms.Button();
             this.calcDistBtn = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.nextClipboardBtn = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.paypalPic)).BeginInit();
@@ -219,6 +222,17 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Teleport Section";
             // 
+            // nextClipboardBtn
+            // 
+            this.nextClipboardBtn.Font = new System.Drawing.Font("Wingdings", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nextClipboardBtn.Location = new System.Drawing.Point(183, 91);
+            this.nextClipboardBtn.Name = "nextClipboardBtn";
+            this.nextClipboardBtn.Size = new System.Drawing.Size(40, 39);
+            this.nextClipboardBtn.TabIndex = 17;
+            this.nextClipboardBtn.Text = "📋";
+            this.nextClipboardBtn.UseVisualStyleBackColor = true;
+            this.nextClipboardBtn.Click += new System.EventHandler(this.nextClipboardBtn_Click);
+            // 
             // currentClipboardBtn
             // 
             this.currentClipboardBtn.Font = new System.Drawing.Font("Wingdings", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -359,12 +373,12 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(12, 380);
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(17, 375);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(395, 25);
+            this.label6.Size = new System.Drawing.Size(378, 25);
             this.label6.TabIndex = 14;
-            this.label6.Text = "Hover over \"Step x\" for more information";
+            this.label6.Text = "Hover over PINK area for more information";
             // 
             // paypalPic
             // 
@@ -401,11 +415,14 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.adbTime);
             this.groupBox3.Controls.Add(this.label14);
             this.groupBox3.Controls.Add(this.label13);
             this.groupBox3.Controls.Add(this.label12);
             this.groupBox3.Controls.Add(this.customTimerBtn);
             this.groupBox3.Controls.Add(this.listBox2);
+            this.groupBox3.Controls.Add(this.plusBtn);
+            this.groupBox3.Controls.Add(this.minusBtn);
             this.groupBox3.Controls.Add(this.calcDistBtn);
             this.groupBox3.Location = new System.Drawing.Point(695, 11);
             this.groupBox3.Name = "groupBox3";
@@ -415,6 +432,45 @@
             this.groupBox3.Text = "Useful Tools - These tools are helpers only, not necessary for the functioning of" +
     " app";
             this.toolTip1.SetToolTip(this.groupBox3, "These tools are not necessary for functioning, but they are really useful.");
+            // 
+            // adbTime
+            // 
+            this.adbTime.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.adbTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.adbTime.Location = new System.Drawing.Point(242, 38);
+            this.adbTime.Name = "adbTime";
+            this.adbTime.Size = new System.Drawing.Size(55, 32);
+            this.adbTime.TabIndex = 5;
+            this.adbTime.Text = "0";
+            this.adbTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.toolTip1.SetToolTip(this.adbTime, "If your phone is slow, Teleporting may not work properly.\r\nTry increasing the wai" +
+        "t time between ADB commands, \r\nso your phone will have enough time to respond.");
+            // 
+            // label14
+            // 
+            this.label14.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label14.Location = new System.Drawing.Point(6, 78);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(333, 2);
+            this.label14.TabIndex = 4;
+            // 
+            // label13
+            // 
+            this.label13.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label13.Location = new System.Drawing.Point(7, 29);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(333, 2);
+            this.label13.TabIndex = 4;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(186, 215);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(21, 17);
+            this.label12.TabIndex = 3;
+            this.label12.Text = "<-";
             // 
             // customTimerBtn
             // 
@@ -460,13 +516,41 @@
             this.listBox2.Size = new System.Drawing.Size(162, 284);
             this.listBox2.TabIndex = 1;
             // 
+            // plusBtn
+            // 
+            this.plusBtn.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.plusBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.plusBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.plusBtn.Location = new System.Drawing.Point(297, 38);
+            this.plusBtn.Name = "plusBtn";
+            this.plusBtn.Size = new System.Drawing.Size(29, 31);
+            this.plusBtn.TabIndex = 0;
+            this.plusBtn.Text = "+";
+            this.plusBtn.UseVisualStyleBackColor = false;
+            this.plusBtn.Click += new System.EventHandler(this.plusBtn_Click);
+            // 
+            // minusBtn
+            // 
+            this.minusBtn.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.minusBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.minusBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.minusBtn.Location = new System.Drawing.Point(213, 39);
+            this.minusBtn.Name = "minusBtn";
+            this.minusBtn.Size = new System.Drawing.Size(29, 31);
+            this.minusBtn.TabIndex = 0;
+            this.minusBtn.Text = "-";
+            this.toolTip1.SetToolTip(this.minusBtn, "If your phone is slow, Teleporting may not work as expected. Try increasing the n" +
+        "umber of seconds to wait, between ADB commands.");
+            this.minusBtn.UseVisualStyleBackColor = false;
+            this.minusBtn.Click += new System.EventHandler(this.minusBtn_Click);
+            // 
             // calcDistBtn
             // 
             this.calcDistBtn.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.calcDistBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.calcDistBtn.Location = new System.Drawing.Point(17, 39);
             this.calcDistBtn.Name = "calcDistBtn";
-            this.calcDistBtn.Size = new System.Drawing.Size(309, 31);
+            this.calcDistBtn.Size = new System.Drawing.Size(162, 31);
             this.calcDistBtn.TabIndex = 0;
             this.calcDistBtn.Text = "Distance Calculate (www)";
             this.toolTip1.SetToolTip(this.calcDistBtn, "Opens a website where you can calculate distance manually between two coordinates" +
@@ -479,43 +563,6 @@
             this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
             this.notifyIcon1.Text = "notifyIcon1";
             this.notifyIcon1.Visible = true;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(186, 215);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(21, 17);
-            this.label12.TabIndex = 3;
-            this.label12.Text = "<-";
-            // 
-            // label13
-            // 
-            this.label13.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label13.Location = new System.Drawing.Point(7, 29);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(333, 2);
-            this.label13.TabIndex = 4;
-            // 
-            // label14
-            // 
-            this.label14.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label14.Location = new System.Drawing.Point(6, 78);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(333, 2);
-            this.label14.TabIndex = 4;
-            // 
-            // nextClipboardBtn
-            // 
-            this.nextClipboardBtn.Font = new System.Drawing.Font("Wingdings", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nextClipboardBtn.Location = new System.Drawing.Point(183, 91);
-            this.nextClipboardBtn.Name = "nextClipboardBtn";
-            this.nextClipboardBtn.Size = new System.Drawing.Size(40, 39);
-            this.nextClipboardBtn.TabIndex = 17;
-            this.nextClipboardBtn.Text = "📋";
-            this.nextClipboardBtn.UseVisualStyleBackColor = true;
-            this.nextClipboardBtn.Click += new System.EventHandler(this.nextClipboardBtn_Click);
             // 
             // appForm
             // 
@@ -596,6 +643,9 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button nextClipboardBtn;
+        private System.Windows.Forms.Button minusBtn;
+        private System.Windows.Forms.Label adbTime;
+        private System.Windows.Forms.Button plusBtn;
     }
 }
 
