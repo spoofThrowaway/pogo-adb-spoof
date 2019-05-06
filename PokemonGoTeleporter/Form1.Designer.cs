@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(appForm));
             this.teleportBtn = new System.Windows.Forms.Button();
             this.currentCoordinateTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -42,6 +43,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.currentClipboardBtn = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -57,11 +59,22 @@
             this.paypalPic = new System.Windows.Forms.PictureBox();
             this.etheriumPic = new System.Windows.Forms.PictureBox();
             this.btcPic = new System.Windows.Forms.PictureBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.customTimerBtn = new System.Windows.Forms.Button();
+            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.calcDistBtn = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.nextClipboardBtn = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.paypalPic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.etheriumPic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btcPic)).BeginInit();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // teleportBtn
@@ -185,6 +198,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.nextClipboardBtn);
+            this.groupBox1.Controls.Add(this.currentClipboardBtn);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label9);
@@ -203,6 +218,18 @@
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Teleport Section";
+            // 
+            // currentClipboardBtn
+            // 
+            this.currentClipboardBtn.Font = new System.Drawing.Font("Wingdings", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.currentClipboardBtn.Location = new System.Drawing.Point(183, 28);
+            this.currentClipboardBtn.Name = "currentClipboardBtn";
+            this.currentClipboardBtn.Size = new System.Drawing.Size(40, 39);
+            this.currentClipboardBtn.TabIndex = 17;
+            this.currentClipboardBtn.Text = "📋";
+            this.toolTip1.SetToolTip(this.currentClipboardBtn, "Copy to Clipboard");
+            this.currentClipboardBtn.UseVisualStyleBackColor = true;
+            this.currentClipboardBtn.Click += new System.EventHandler(this.currentClipboardBtn_Click);
             // 
             // label11
             // 
@@ -372,12 +399,130 @@
             this.btcPic.TabStop = false;
             this.btcPic.Click += new System.EventHandler(this.btcPic_Click);
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.label14);
+            this.groupBox3.Controls.Add(this.label13);
+            this.groupBox3.Controls.Add(this.label12);
+            this.groupBox3.Controls.Add(this.customTimerBtn);
+            this.groupBox3.Controls.Add(this.listBox2);
+            this.groupBox3.Controls.Add(this.calcDistBtn);
+            this.groupBox3.Location = new System.Drawing.Point(695, 11);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(347, 394);
+            this.groupBox3.TabIndex = 16;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Useful Tools - These tools are helpers only, not necessary for the functioning of" +
+    " app";
+            this.toolTip1.SetToolTip(this.groupBox3, "These tools are not necessary for functioning, but they are really useful.");
+            // 
+            // customTimerBtn
+            // 
+            this.customTimerBtn.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.customTimerBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.customTimerBtn.Location = new System.Drawing.Point(213, 89);
+            this.customTimerBtn.Name = "customTimerBtn";
+            this.customTimerBtn.Size = new System.Drawing.Size(113, 289);
+            this.customTimerBtn.TabIndex = 2;
+            this.customTimerBtn.Text = "Custom Timer Start";
+            this.toolTip1.SetToolTip(this.customTimerBtn, "Pressing this button will overwrite the currently running timer!");
+            this.customTimerBtn.UseVisualStyleBackColor = false;
+            this.customTimerBtn.Click += new System.EventHandler(this.customTimerBtn_Click);
+            // 
+            // listBox2
+            // 
+            this.listBox2.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBox2.FormattingEnabled = true;
+            this.listBox2.ItemHeight = 14;
+            this.listBox2.Items.AddRange(new object[] {
+            "1km         |         48sec",
+            "2km         |         1min",
+            "3km         |         2min",
+            "4km         |         2min",
+            "5km         |         3min",
+            "8km         |         4min",
+            "10km       |         6min",
+            "15km       |          8min",
+            "20km       |         11min",
+            "25km       |         14min",
+            "50km       |         20min",
+            "75km       |         23min",
+            "100km     |         26min",
+            "200km     |         36min",
+            "250km     |         41min",
+            "500km     |         61min",
+            "750km     |         81min",
+            "1000km   |       101min",
+            "1250km   |       115min",
+            "1403km+ |       120min"});
+            this.listBox2.Location = new System.Drawing.Point(17, 89);
+            this.listBox2.Name = "listBox2";
+            this.listBox2.Size = new System.Drawing.Size(162, 284);
+            this.listBox2.TabIndex = 1;
+            // 
+            // calcDistBtn
+            // 
+            this.calcDistBtn.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.calcDistBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.calcDistBtn.Location = new System.Drawing.Point(17, 39);
+            this.calcDistBtn.Name = "calcDistBtn";
+            this.calcDistBtn.Size = new System.Drawing.Size(309, 31);
+            this.calcDistBtn.TabIndex = 0;
+            this.calcDistBtn.Text = "Distance Calculate (www)";
+            this.toolTip1.SetToolTip(this.calcDistBtn, "Opens a website where you can calculate distance manually between two coordinates" +
+        ".");
+            this.calcDistBtn.UseVisualStyleBackColor = false;
+            this.calcDistBtn.Click += new System.EventHandler(this.calcDistBtn_Click);
+            // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
+            this.notifyIcon1.Text = "notifyIcon1";
+            this.notifyIcon1.Visible = true;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(186, 215);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(21, 17);
+            this.label12.TabIndex = 3;
+            this.label12.Text = "<-";
+            // 
+            // label13
+            // 
+            this.label13.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label13.Location = new System.Drawing.Point(7, 29);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(333, 2);
+            this.label13.TabIndex = 4;
+            // 
+            // label14
+            // 
+            this.label14.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label14.Location = new System.Drawing.Point(6, 78);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(333, 2);
+            this.label14.TabIndex = 4;
+            // 
+            // nextClipboardBtn
+            // 
+            this.nextClipboardBtn.Font = new System.Drawing.Font("Wingdings", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nextClipboardBtn.Location = new System.Drawing.Point(183, 91);
+            this.nextClipboardBtn.Name = "nextClipboardBtn";
+            this.nextClipboardBtn.Size = new System.Drawing.Size(40, 39);
+            this.nextClipboardBtn.TabIndex = 17;
+            this.nextClipboardBtn.Text = "📋";
+            this.nextClipboardBtn.UseVisualStyleBackColor = true;
+            this.nextClipboardBtn.Click += new System.EventHandler(this.nextClipboardBtn_Click);
+            // 
             // appForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(700, 413);
+            this.ClientSize = new System.Drawing.Size(1054, 413);
             this.Controls.Add(this.btcPic);
             this.Controls.Add(this.etheriumPic);
             this.Controls.Add(this.paypalPic);
@@ -389,7 +534,9 @@
             this.Controls.Add(this.currentCoordinateTextBox);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "appForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pokemon Go Teleporter";
@@ -401,6 +548,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.paypalPic)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.etheriumPic)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btcPic)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -436,6 +585,17 @@
         private System.Windows.Forms.PictureBox paypalPic;
         private System.Windows.Forms.PictureBox etheriumPic;
         private System.Windows.Forms.PictureBox btcPic;
+        private System.Windows.Forms.Button currentClipboardBtn;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Button calcDistBtn;
+        private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
+        private System.Windows.Forms.Button customTimerBtn;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Button nextClipboardBtn;
     }
 }
 

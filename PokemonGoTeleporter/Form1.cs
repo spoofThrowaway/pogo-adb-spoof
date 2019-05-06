@@ -250,6 +250,117 @@ namespace PokemonGoTeleporter
             MessageBox.Show("Bitcoin Wallet Copied to clipboard for your convenience!");
         }
 
+        private void currentClipboardBtn_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(currentCoordinateTextBox.Text);
+        }
+
+        private void calcDistBtn_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://boulter.com/gps/distance/?from=&to=&units=k");
+        }
+
+        private void customTimerBtn_Click(object sender, EventArgs e)
+        {
+            int selectedCustomDistance = listBox2.SelectedIndex;
+
+            switch (selectedCustomDistance) {
+                case 0:
+                    timeSeconds = 48;
+                    timer1.Start();
+                    break;
+                case 1:
+                    timeSeconds = 60;
+                    timer1.Start();
+                    break;
+                case 2:
+                    timeSeconds = 120;
+                    timer1.Start();
+                    break;
+                case 3:
+                    timeSeconds = 120;
+                    timer1.Start();
+                    break;
+                case 4:
+                    timeSeconds = 180;
+                    timer1.Start();
+                    break;
+                case 5:
+                    timeSeconds = 240;
+                    timer1.Start();
+                    break;
+                case 6:
+                    timeSeconds = 360;
+                    timer1.Start();
+                    break;
+                case 7:
+                    timeSeconds = 480;
+                    timer1.Start();
+                    break;
+                case 8:
+                    timeSeconds = 660;
+                    timer1.Start();
+                    break;
+                case 9:
+                    timeSeconds = 840;
+                    timer1.Start();
+                    break;
+                case 10:
+                    timeSeconds = 1200;
+                    timer1.Start();
+                    break;
+                case 11:
+                    timeSeconds = 1380;
+                    timer1.Start();
+                    break;
+                case 12:
+                    timeSeconds = 1560;
+                    timer1.Start();
+                    break;
+                case 13:
+                    timeSeconds = 2160;
+                    timer1.Start();
+                    break;
+                case 14:
+                    timeSeconds = 2460;
+                    timer1.Start();
+                    break;
+                case 15:
+                    timeSeconds = 3660;
+                    timer1.Start();
+                    break;
+                case 16:
+                    timeSeconds = 4860;
+                    timer1.Start();
+                    break;
+                case 17:
+                    timeSeconds = 6060;
+                    timer1.Start();
+                    break;
+                case 18:
+                    timeSeconds = 6900;
+                    timer1.Start();
+                    break;
+                case 19:
+                    timeSeconds = 7200;
+                    timer1.Start();
+                    break;
+                default:
+                    MessageBox.Show("If you want to use the custom timer function, select a distance from the list and THEN press the button!");
+                    break;
+            }
+
+
+
+            
+
+        }
+
+        private void nextClipboardBtn_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(nextCoordinateTextBox.Text);
+        }
+
         private void appForm_Load(object sender, EventArgs e)
         {
             ToolTip toolTip1 = new ToolTip();
@@ -257,6 +368,11 @@ namespace PokemonGoTeleporter
             paypalPic.ImageLocation = "https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif";
             etheriumPic.ImageLocation = "https://geth.ethereum.org/static/images/ethereum.png";
             btcPic.ImageLocation = "https://en.bitcoin.it/w/images/en/2/29/BC_Logo_.png";
+
+            notifyIcon1.Text = "Pokemon Go Teleporter";
+            notifyIcon1.Visible = true;
+
+
 
             toolTip1.AutoPopDelay = 30000;
             toolTip1.InitialDelay = 250;
@@ -367,6 +483,12 @@ namespace PokemonGoTeleporter
 
                 timeLeftToTeleport.Text = "Ready to Teleport!";
                 timeLeftToTeleport.ForeColor = Color.Green;
+
+                notifyIcon1.BalloonTipIcon = ToolTipIcon.Info;
+                notifyIcon1.BalloonTipText = "You can teleport now!";
+                notifyIcon1.BalloonTipTitle = "Pokemon Go Teleporter";
+
+                notifyIcon1.ShowBalloonTip(5000);
 
             }
             else
