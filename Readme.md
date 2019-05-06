@@ -1,4 +1,4 @@
-![alt text](https://i.imgur.com/sWIJSDH.png)
+![alt text](https://i.imgur.com/bDNBa1k.png)
 
 Disclaimer: I'm not taking any responsability for any damage caused by this program. This will NOT prevent you from softbans, but it will make it harder to get them if you use the program correctly.
 
