@@ -41,6 +41,7 @@ namespace PokemonGoTeleporter
         bool firstCoord = true;
         bool checkBtnAvailable = false;
         int adbWaitTime = 1000;
+        bool isAndroid8 = true;
 
 
         public appForm()
@@ -192,8 +193,21 @@ namespace PokemonGoTeleporter
 
         private void stopJoystickBtn_Click(object sender, EventArgs e)
         {
+            
+
+
             startInfo.FileName = "adb.exe";
-            startInfo.Arguments = " shell am start-foreground-service -a theappninjas.gpsjoystick.STOP";
+
+            if (isAndroid8 == true)
+            {
+                startInfo.Arguments = " shell am start-foreground-service -a theappninjas.gpsjoystick.STOP";
+            }
+            else
+            {
+                startInfo.Arguments = " shell am startservice -a theappninjas.gpsjoystick.STOP";
+            }
+
+            
             process.StartInfo = startInfo;
             process.Start();
             isServiceRunning = false;
@@ -204,7 +218,17 @@ namespace PokemonGoTeleporter
         private void startService()
         {
             startInfo.FileName = "adb.exe";
-            startInfo.Arguments = " shell am start-foreground-service -a theappninjas.gpsjoystick.STOP";
+
+            if (isAndroid8 == true)
+            {
+                startInfo.Arguments = " shell am start-foreground-service -a theappninjas.gpsjoystick.STOP";
+            }
+            else
+            {
+                //startInfo.Arguments = " shell am startservice -a theappninjas.gpsjoystick.STOP";
+            }
+
+            
             process.StartInfo = startInfo;
             process.Start();
             process.Refresh();
@@ -212,7 +236,20 @@ namespace PokemonGoTeleporter
             System.Threading.Thread.Sleep(adbWaitTime);
 
             startInfo.FileName = "adb.exe";
-            startInfo.Arguments = " shell am start-foreground-service -a theappninjas.gpsjoystick.TELEPORT --ef lat " + currentLat + " --ef lng " + currentLong.ToString() + " --ef alt 0.0";
+
+            if (isAndroid8 == true)
+            {
+                startInfo.Arguments = " shell am start-foreground-service -a theappninjas.gpsjoystick.TELEPORT --ef lat "
+                    + currentLat + " --ef lng " + currentLong.ToString() + " --ef alt 0.0";
+            }
+            else
+            {
+                startInfo.Arguments = " shell am startservice -a theappninjas.gpsjoystick.TELEPORT --ef lat "
+                    + currentLat + " --ef lng " + currentLong.ToString() + " --ef alt 0.0";
+            }
+
+
+            
             process.StartInfo = startInfo;
             process.Start();
             isServiceRunning = true;
@@ -380,6 +417,18 @@ namespace PokemonGoTeleporter
             }
         }
 
+        private void androidButton_Click(object sender, EventArgs e)
+        {
+            if(isAndroid8 == true) {
+                isAndroid8 = false;
+                androidButton.Text = "Android version < 7.0- ";
+            }else if(isAndroid8 == false)
+            {
+                isAndroid8 = true;
+                androidButton.Text = "Android version > 7.0+ ";
+            }
+        }
+
         private void nextClipboardBtn_Click(object sender, EventArgs e)
         {
             Clipboard.SetText(nextCoordinateTextBox.Text);
@@ -410,12 +459,15 @@ namespace PokemonGoTeleporter
             toolTip1.SetToolTip(this.label9, "Press the \"TELEPORT!\" button to teleport to the coordinate in the \"Next Coordinate\" field.");
             toolTip1.SetToolTip(this.label10, "After you have catched the 'Mon, or it fled, press the \"Start Cooldown Counter\" button to start the cooldown until you can safely teleport to the next location.");
             toolTip1.SetToolTip(this.label11, "Press this button if the 'Mon despawned or you did not interact with anything at the location and want to move to the next coordinate.");
+            toolTip1.SetToolTip(this.label15, "Press this button to change the version of Android you're phone is running. This is necesarry for the proper working of this tool. If you're using Android lower than 7.0 than use the lower signed button, if youre using newer than 7.0, you can use the larger sign or just look for  7.0+  or  7.0-  . Have fun!");
 
 
             adbTime.Text = (adbWaitTime / 1000).ToString() + " sec";
 
 
             MessageBox.Show("DISCLAIMER: I am not responsible for any damage this app may cause you, including, but not limited to softbans, literal bans, thermonuclear war and kittys dying. If you do not agree, please close this program and forget about it's existence.");
+
+           
         }
 
         //Coordinate parsing

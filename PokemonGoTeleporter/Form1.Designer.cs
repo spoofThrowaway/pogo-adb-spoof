@@ -50,6 +50,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.despawnBtn = new System.Windows.Forms.Button();
             this.startCooldownBtn = new System.Windows.Forms.Button();
+            this.androidButton = new System.Windows.Forms.Button();
             this.stopJoystickBtn = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -72,6 +73,7 @@
             this.calcDistBtn = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.label15 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.paypalPic)).BeginInit();
@@ -298,12 +300,26 @@
             this.startCooldownBtn.UseVisualStyleBackColor = true;
             this.startCooldownBtn.Click += new System.EventHandler(this.startCooldownBtn_Click);
             // 
+            // androidButton
+            // 
+            this.androidButton.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.androidButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.androidButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.androidButton.Location = new System.Drawing.Point(12, 389);
+            this.androidButton.Margin = new System.Windows.Forms.Padding(0);
+            this.androidButton.Name = "androidButton";
+            this.androidButton.Size = new System.Drawing.Size(179, 39);
+            this.androidButton.TabIndex = 6;
+            this.androidButton.Text = "Android version > 7.0+";
+            this.androidButton.UseVisualStyleBackColor = false;
+            this.androidButton.Click += new System.EventHandler(this.androidButton_Click);
+            // 
             // stopJoystickBtn
             // 
             this.stopJoystickBtn.BackColor = System.Drawing.Color.Firebrick;
             this.stopJoystickBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.stopJoystickBtn.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.stopJoystickBtn.Location = new System.Drawing.Point(605, 369);
+            this.stopJoystickBtn.Location = new System.Drawing.Point(605, 379);
             this.stopJoystickBtn.Name = "stopJoystickBtn";
             this.stopJoystickBtn.Size = new System.Drawing.Size(84, 36);
             this.stopJoystickBtn.TabIndex = 12;
@@ -374,7 +390,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(17, 375);
+            this.label6.Location = new System.Drawing.Point(12, 364);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(378, 25);
             this.label6.TabIndex = 14;
@@ -383,7 +399,7 @@
             // paypalPic
             // 
             this.paypalPic.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.paypalPic.Location = new System.Drawing.Point(413, 369);
+            this.paypalPic.Location = new System.Drawing.Point(413, 379);
             this.paypalPic.Name = "paypalPic";
             this.paypalPic.Size = new System.Drawing.Size(97, 36);
             this.paypalPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -394,7 +410,7 @@
             // etheriumPic
             // 
             this.etheriumPic.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.etheriumPic.Location = new System.Drawing.Point(516, 369);
+            this.etheriumPic.Location = new System.Drawing.Point(516, 379);
             this.etheriumPic.Name = "etheriumPic";
             this.etheriumPic.Size = new System.Drawing.Size(39, 36);
             this.etheriumPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -405,7 +421,7 @@
             // btcPic
             // 
             this.btcPic.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btcPic.Location = new System.Drawing.Point(560, 369);
+            this.btcPic.Location = new System.Drawing.Point(560, 379);
             this.btcPic.Name = "btcPic";
             this.btcPic.Size = new System.Drawing.Size(39, 36);
             this.btcPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -426,7 +442,7 @@
             this.groupBox3.Controls.Add(this.calcDistBtn);
             this.groupBox3.Location = new System.Drawing.Point(695, 11);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(347, 394);
+            this.groupBox3.Size = new System.Drawing.Size(347, 414);
             this.groupBox3.TabIndex = 16;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Useful Tools - These tools are helpers only, not necessary for the functioning of" +
@@ -478,7 +494,7 @@
             this.customTimerBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.customTimerBtn.Location = new System.Drawing.Point(213, 89);
             this.customTimerBtn.Name = "customTimerBtn";
-            this.customTimerBtn.Size = new System.Drawing.Size(113, 289);
+            this.customTimerBtn.Size = new System.Drawing.Size(113, 305);
             this.customTimerBtn.TabIndex = 2;
             this.customTimerBtn.Text = "Custom Timer Start";
             this.toolTip1.SetToolTip(this.customTimerBtn, "Pressing this button will overwrite the currently running timer!");
@@ -513,7 +529,7 @@
             "1403km+ |       120min"});
             this.listBox2.Location = new System.Drawing.Point(17, 89);
             this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(162, 284);
+            this.listBox2.Size = new System.Drawing.Size(162, 298);
             this.listBox2.TabIndex = 1;
             // 
             // plusBtn
@@ -548,6 +564,7 @@
             // 
             this.calcDistBtn.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.calcDistBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.calcDistBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.calcDistBtn.Location = new System.Drawing.Point(17, 39);
             this.calcDistBtn.Name = "calcDistBtn";
             this.calcDistBtn.Size = new System.Drawing.Size(162, 31);
@@ -564,12 +581,25 @@
             this.notifyIcon1.Text = "notifyIcon1";
             this.notifyIcon1.Visible = true;
             // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(200, 401);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(119, 16);
+            this.label15.TabIndex = 18;
+            this.label15.Text = "Android Version";
+            // 
             // appForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1054, 413);
+            this.ClientSize = new System.Drawing.Size(1054, 437);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.androidButton);
             this.Controls.Add(this.btcPic);
             this.Controls.Add(this.etheriumPic);
             this.Controls.Add(this.paypalPic);
@@ -646,6 +676,8 @@
         private System.Windows.Forms.Button minusBtn;
         private System.Windows.Forms.Label adbTime;
         private System.Windows.Forms.Button plusBtn;
+        private System.Windows.Forms.Button androidButton;
+        private System.Windows.Forms.Label label15;
     }
 }
 
